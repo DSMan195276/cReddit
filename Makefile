@@ -13,21 +13,15 @@
 # specifying their object name.
 # Ex. 'make build/src/main.o'
 
-QUIETLY:=@
+include ./common.mk
 
 # Set some basic program-wide compile settings
 # In the future these shouldn't be assumed.
-CC:=$(QUIETLY)gcc
 PROJCFLAGS:=-O2 -Wall -I'./include'
 PROJLDFLAGS:=-fvisibility=hidden
-LD:=$(QUIETLY)ld
-AR:=$(QUIETLY)ar
-INSTALL:=$(QUIETLY)install
-OBJCOPY:=$(QUIETLY)objcopy
 BUILD_DIR:=build
 
 MKDIR:=$(QUIETLY)mkdir -p
-ECHO:=$(QUIETLY)echo
 RM:=$(QUIETLY)rm
 
 ifndef PREFIX
@@ -35,8 +29,6 @@ ifndef PREFIX
 endif
 
 all: real-all
-
-include ./common.mk
 
 # Set initial values for 'targets'
 CLEAN_TARGETS:=
