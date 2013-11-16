@@ -39,8 +39,8 @@ $(LIBREDDIT_CMP_DIR): | $(BUILD_DIR)
 
 # Removes the libreddit folder
 libreddit_clean:
-	$(ECHO) " RM $(LIBREDDIT_CMP_DIR)"
-	$(RM) -fr $(LIBREDDIT_CMP_DIR)
+	$(ECHO) " RMDIR $(LIBREDDIT_CMP_DIR)"
+	$(RMDIR) $(LIBREDDIT_CMP_DIR)
 
 libreddit_install: $(LIBREDDIT_CMP) | $(PREFIX)/lib $(PREFIX)/include
 	$(ECHO) " INSTALL $(PREFIX)/lib/libreddit.so"

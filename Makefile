@@ -45,6 +45,7 @@ BUILD_DIR:=build
 MKDIR:=$(QUIETLY)mkdir -p
 ECHO:=$(QUIETLY)echo
 RM:=$(QUIETLY)rm
+RMDIR:=$(QUIETLY)rm -fr
 
 ifndef PREFIX
 	PREFIX=/usr
@@ -97,6 +98,6 @@ clean: $(CLEAN_TARGETS)
 
 # Top level clean -- deletes whole build directory
 build_clean:
-	$(ECHO) " RM $(BUILD_DIR)"
-	$(RM) -fr $(BUILD_DIR)
+	$(ECHO) " RMDIR $(BUILD_DIR)"
+	$(RMDIR) $(BUILD_DIR)
 

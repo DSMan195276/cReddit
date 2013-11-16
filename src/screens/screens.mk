@@ -17,8 +17,8 @@ $(SCRS_DIR_CMP): | $(CREDDIT_DIR_CMP)
 screens: $(SCRS_COMBINE)
 
 screens_clean:
-	$(ECHO) " RM $(SCRS_DIR_CMP)"
-	$(RM) -fr $(SCRS_DIR_CMP)
+	$(ECHO) " RMDIR $(SCRS_DIR_CMP)"
+	$(RMDIR) $(SCRS_DIR_CMP)
 
 $(SCRS_COMBINE): $(SCRS_OBJECTS)
 	$(ECHO) " LD $(SCRS_COMBINE)"
