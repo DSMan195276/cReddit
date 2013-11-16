@@ -1,6 +1,10 @@
 #ifndef _SRC_GLOBAL_H_
 #define _SRC_GLOBAL_H_
 
+/* This define is needed to use wchar_t ncurses */
+#define _XOPEN_SOURCE_EXTENDED
+
+
 #include <stdio.h>
 #include <stdlib.h>
 

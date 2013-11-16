@@ -1,4 +1,5 @@
-#define _XOPEN_SOURCE_EXTENDED
+
+#include "global.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -9,7 +10,6 @@
 #include <form.h>
 #include <locale.h>
 
-#include "global.h"
 #include "opt.h"
 #include "screens/link_screen.h"
 #include "screens/comment_screen.h"
