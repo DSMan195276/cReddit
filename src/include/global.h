@@ -1,5 +1,5 @@
-#ifndef _SRC_GLOBAL_H_
-#define _SRC_GLOBAL_H_
+#ifndef _SRC_INCLUDE_GLOBAL_H_
+#define _SRC_INCLUDE_GLOBAL_H_
 
 /* This define is needed to use wchar_t ncurses */
 #define _XOPEN_SOURCE_EXTENDED

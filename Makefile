@@ -24,7 +24,7 @@ QUIETLY:=@
 
 # Set some basic program-wide compile settings
 # In the future these shouldn't be assumed.
-CC:=$(QUIETLY)gcc
+CC:=$(QUIETLY)$(CC)
 
 ifdef REDDIT_DEBUG
 	PROJCFLAGS+=-g -DREDDIT_DEBUG

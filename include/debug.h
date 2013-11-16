@@ -6,6 +6,10 @@
 # include <wchar.h>
 #endif
 
+/* Quick Macros to get a quoted version of the contents of the macro x */
+#define QQ(x) #x
+#define Q(x) QQ(x)
+
 /*
  * If you compile with -DREDDIT_DEBUG, then debugging will be turned-on program-wide
  *
@@ -19,7 +23,7 @@
 #ifdef REDDIT_DEBUG
 # define DEBUG_PRINT(...) \
     do { \
-        fwprintf(DEBUG_FILE, L"%s: ", DEBUG_MODULE); \
+        fwprintf(DEBUG_FILE, L"%s: %s: %d: ", DEBUG_MODULE, __FILE__, __LINE__); \
         fwprintf(DEBUG_FILE, __VA_ARGS__); \
         fflush(DEBUG_FILE); \
     } while (0)

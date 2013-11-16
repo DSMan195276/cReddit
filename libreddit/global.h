@@ -44,8 +44,6 @@ extern FILE* debugFile;
  * This is the UserAgent string appended on by libreddit (At the beginning of
  * the UserAgent) (LIBREDDIT_VERSION is defined by the Makefile)
  */
-#define QQ(macro) #macro
-#define Q(macro) QQ(macro)
 #define LIBREDDIT_USERAGENT "libreddit/" Q(LIBREDDIT_VERSION) " (http://github.com/Cotix/cReddit) "
 
 /*

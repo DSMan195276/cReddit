@@ -24,9 +24,6 @@ endif
 
 LIBREDDIT_COMBINED := $(LIBREDDIT_CMP_DIR)/all.o
 
-COMPILE_TARGETS += $(LIBREDDIT_CMP)
-INSTALL_TARGETS += libreddit_install
-
 # Find source files, and make a list of the object files to be compiled
 LIBREDDIT_SOURCES := $(patsubst $(LIBREDDIT_DIR)/%,%,$(wildcard $(LIBREDDIT_DIR)/*.c))
 LIBREDDIT_OBJECTS := $(patsubst %,$(LIBREDDIT_CMP_DIR)/%,$(LIBREDDIT_SOURCES:.c=.o))
@@ -66,4 +63,7 @@ $(LIBREDDIT_COMBINED): $(LIBREDDIT_OBJECTS)
 $(LIBREDDIT_CMP_DIR)/%.o: $(LIBREDDIT_DIR)/%.c | $(LIBREDDIT_CMP_DIR)
 	$(ECHO) " CC      $@"
 	$(CC) $(LIBREDDIT_CFLAGS) -c $< -o $@
+
+COMPILE_TARGETS += $(LIBREDDIT_CMP)
+INSTALL_TARGETS += libreddit_install
 
