@@ -76,21 +76,21 @@ CLEAN_TARGETS +=build_clean
 real-all: $(EXECUTABLE_FULL)
 
 $(PREFIX)/bin:
-	$(ECHO) " MKDIR $(PREFIX)/bin"
+	$(ECHO) " MKDIR   $(PREFIX)/bin"
 	$(MKDIR) $(PREFIX)/bin
 
 $(PREFIX)/include:
-	$(ECHO) " MKDIR $(PREFIX)/include"
+	$(ECHO) " MKDIR   $(PREFIX)/include"
 	$(MKDIR) $(PREFIX)/include
 
 $(PREFIX)/lib:
-	$(ECHO) " MKDIR $(PREFIX)/lib"
+	$(ECHO) " MKDIR   $(PREFIX)/lib"
 	$(MKDIR) $(PREFIX)/lib
 
 install: $(INSTALL_TARGETS)
 
 $(BUILD_DIR):
-	$(ECHO) " MKDIR $(BUILD_DIR)"
+	$(ECHO) " MKDIR   $(BUILD_DIR)"
 	$(MKDIR) $(BUILD_DIR)
 
 # Calls all the clean targets to be run, so we can clean up the build directory
@@ -98,6 +98,6 @@ clean: $(CLEAN_TARGETS)
 
 # Top level clean -- deletes whole build directory
 build_clean:
-	$(ECHO) " RMDIR $(BUILD_DIR)"
+	$(ECHO) " RMDIR   $(BUILD_DIR)"
 	$(RMDIR) $(BUILD_DIR)
 

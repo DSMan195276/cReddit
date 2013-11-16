@@ -11,21 +11,21 @@ SCRS_SOURCES:=$(patsubst $(SCRS_DIR)/%,%,$(wildcard $(SCRS_DIR)/*.c))
 SCRS_OBJECTS:=$(patsubst %,$(SCRS_DIR_CMP)/%,$(SCRS_SOURCES:.c=.o))
 
 $(SCRS_DIR_CMP): | $(CREDDIT_DIR_CMP)
-	$(ECHO) " MKDIR $(SCRS_DIR_CMP)"
+	$(ECHO) " MKDIR   $(SCRS_DIR_CMP)"
 	$(MKDIR) $(SCRS_DIR_CMP)
 
 screens: $(SCRS_COMBINE)
 
 screens_clean:
-	$(ECHO) " RMDIR $(SCRS_DIR_CMP)"
+	$(ECHO) " RMDIR   $(SCRS_DIR_CMP)"
 	$(RMDIR) $(SCRS_DIR_CMP)
 
 $(SCRS_COMBINE): $(SCRS_OBJECTS)
-	$(ECHO) " LD $(SCRS_COMBINE)"
+	$(ECHO) " LD      $(SCRS_COMBINE)"
 	$(LD) -r $(SCRS_OBJECTS) -o $(SCRS_COMBINE)
 
 $(SCRS_DIR_CMP)/%.o: $(SCRS_DIR)/%.c | $(SCRS_DIR_CMP)
-	$(ECHO) " CC $@"
+	$(ECHO) " CC      $@"
 	$(CC) $(SCRS_CFLAGS) -c $< -o $@
 
 COMPILE_TARGETS+=$(SCRS_COMBINE)

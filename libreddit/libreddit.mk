@@ -34,12 +34,12 @@ LIBREDDIT_OBJECTS := $(patsubst %,$(LIBREDDIT_CMP_DIR)/%,$(LIBREDDIT_SOURCES:.c=
 libreddit: $(LIBREDDIT_CMP)
 
 $(LIBREDDIT_CMP_DIR): | $(BUILD_DIR)
-	$(ECHO) " MKDIR $(LIBREDDIT_CMP_DIR)"
+	$(ECHO) " MKDIR   $(LIBREDDIT_CMP_DIR)"
 	$(MKDIR) $(LIBREDDIT_CMP_DIR)
 
 # Removes the libreddit folder
 libreddit_clean:
-	$(ECHO) " RMDIR $(LIBREDDIT_CMP_DIR)"
+	$(ECHO) " RMDIR   $(LIBREDDIT_CMP_DIR)"
 	$(RMDIR) $(LIBREDDIT_CMP_DIR)
 
 libreddit_install: $(LIBREDDIT_CMP) | $(PREFIX)/lib $(PREFIX)/include
@@ -50,20 +50,20 @@ libreddit_install: $(LIBREDDIT_CMP) | $(PREFIX)/lib $(PREFIX)/include
 
 ifdef STATIC
 $(LIBREDDIT_CMP): $(LIBREDDIT_COMBINED)
-	$(ECHO) " AR $(LIBREDDIT_CMP)"
+	$(ECHO) " AR      $(LIBREDDIT_CMP)"
 	$(AR) rcs $(LIBREDDIT_CMP) $(LIBREDDIT_COMBINED)
 else
 $(LIBREDDIT_CMP):  $(LIBREDDIT_COMBINED)
-	$(ECHO) " CC $(LIBREDDIT_CMP)"
+	$(ECHO) " CCLD    $(LIBREDDIT_CMP)"
 	$(CC) -shared $(LIBREDDIT_LDFLAGS) $(LIBREDDIT_CFLAGS) $(LIBREDDIT_COMBINED) -o $(LIBREDDIT_CMP)
 endif
 
 $(LIBREDDIT_COMBINED): $(LIBREDDIT_OBJECTS)
-	$(ECHO) " LD $@"
+	$(ECHO) " LD      $@"
 	$(LD) -r $(LIBREDDIT_OBJECTS) -o $@
 
 # Compiles a single c file into a coresponding .o file
 $(LIBREDDIT_CMP_DIR)/%.o: $(LIBREDDIT_DIR)/%.c | $(LIBREDDIT_CMP_DIR)
-	$(ECHO) " CC $@"
+	$(ECHO) " CC      $@"
 	$(CC) $(LIBREDDIT_CFLAGS) -c $< -o $@
 

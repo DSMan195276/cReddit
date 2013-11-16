@@ -23,7 +23,7 @@ CREDDIT_SOURCES:=$(patsubst $(CREDDIT_DIR)/%,%,$(wildcard $(CREDDIT_DIR)/*.c))
 CREDDIT_OBJECTS:=$(patsubst %,$(CREDDIT_DIR_CMP)/%,$(CREDDIT_SOURCES:.c=.o))
 
 $(CREDDIT_DIR_CMP): | $(BUILD_DIR)
-	$(ECHO) " MKDIR $(CREDDIT_DIR_CMP)"
+	$(ECHO) " MKDIR   $(CREDDIT_DIR_CMP)"
 	$(MKDIR) $(CREDDIT_DIR_CMP)
 
 include ./$(CREDDIT_DIR)/screens/screens.mk
@@ -31,11 +31,11 @@ include ./$(CREDDIT_DIR)/screens/screens.mk
 creddit: $(EXECUTABLE_FULL)
 
 $(EXECUTABLE_FULL): libreddit $(SCRS_COMBINE) $(CREDDIT_OBJECTS) | $(CREDDIT_DIR_CMP)
-	$(ECHO) " CC $(EXECUTABLE_FULL)"
+	$(ECHO) " CCLD    $(EXECUTABLE_FULL)"
 	$(CC) $(SCRS_COMBINE) $(CREDDIT_OBJECTS) $(CREDDIT_CFLAGS) $(CREDDIT_LDFLAGS) -o $(EXECUTABLE_FULL)
 
 creddit_clean:
-	$(ECHO) " RMDIR $(CREDDIT_DIR_CMP)"
+	$(ECHO) " RMDIR   $(CREDDIT_DIR_CMP)"
 	$(RMDIR) $(CREDDIT_DIR_CMP)
 
 creddit_install: $(EXECUTABLE_FULL) | $(PREFIX)/bin
@@ -43,7 +43,7 @@ creddit_install: $(EXECUTABLE_FULL) | $(PREFIX)/bin
 	$(INSTALL) -m 0755 $(EXECUTABLE_FULL) $(PREFIX)/bin/
 
 $(CREDDIT_DIR_CMP)/%.o: $(CREDDIT_DIR)/%.c | $(CREDDIT_DIR_CMP)
-	$(ECHO) " CC $@"
+	$(ECHO) " CC      $@"
 	$(CC) $(CREDDIT_CFLAGS) -c $< -o $@
 
 COMPILE_TARGETS+=$(EXECUTABLE_FULL)
